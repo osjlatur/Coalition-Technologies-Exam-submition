@@ -6,7 +6,7 @@ async function fetchPatientData() {
         }
         const data = await response.json();
         
-        // Filter data for Jessica Taylor
+        
         const jessicaData = data.find(patient => patient.name === "Jessica Taylor");
         return jessicaData ? jessicaData.bloodPressureData : []; // Adjust according to your API response structure
     } catch (error) {
@@ -17,7 +17,7 @@ async function fetchPatientData() {
 async function renderChart() {
     const bloodPressureData = await fetchPatientData();
 
-    // Assuming bloodPressureData is an array of objects with year and blood pressure values
+   
     const years = bloodPressureData.map(item => item.year); // Adjust according to your API response structure
     const bloodPressureValues = bloodPressureData.map(item => item.value); // Adjust according to your API response structure
 
@@ -45,5 +45,5 @@ async function renderChart() {
     });
 }
 
-// Call the renderChart function to fetch data and render the chart
+
 renderChart();
